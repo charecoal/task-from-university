@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: white;
+            background-color: black;
+            margin: 2cm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            max-width: 100%;
+            max-height: 500px;
+            border: 5px solid white;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        a {
+            color: white;
+            text-decoration: underline;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Photo Gallery</h1>
+    <img id="gallery-image" src="https://cdn.abo.media/upload/article/res/770-430/o_1e5clqvlj1mjr1b07nm118n8rkj8e.jpg" alt="Gallery Image">
+    <div class="controls">
+        <button onclick="prevImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+    <br>
+    <a href="index.html">Return to Main Page</a>
+
+    <script>
+        const images = [
+            "https://cdn.abo.media/upload/article/res/770-430/o_1e5clqvlj1mjr1b07nm118n8rkj8e.jpg",
+            "https://vokrugsveta.ua/wp-content/uploads/2022/02/20220209_on_escapedfishamazon_00592280.jpg",
+            "https://synevyr-park.in.ua/wp-content/uploads/2021/08/Skhyly_hory_Strymba_SashaBystrikov_Viki-liubyt-Zemliu.jpg"
+        ];
+
+        let currentIndex = 0;
+        const galleryImage = document.getElementById('gallery-image');
+
+        function showImage(index) {
+            galleryImage.src = images[index];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        setInterval(nextImage, 7000); // Change image every 7 seconds
+    </script>
+</body>
+</html>
