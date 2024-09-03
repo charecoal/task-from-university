@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Page</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: white;
+            background-color: black;
+            margin: 2cm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin-top: 20px;
+            cursor: pointer;
+            color: black;
+        }
+        .counter {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        .navigation {
+            margin-top: 20px;
+        }
+        .navigation a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click Counter</h1>
+    <button onclick="incrementCounter()">Click Me</button>
+    <div class="counter" id="counter">0</div>
+    <div class="navigation">
+        <a href="index.html">Go to Main Page</a>
+        <a href="gallery.html">Go to Photo Gallery</a>
+    </div>
+
+    <script>
+        let count = 0;
+        const counterElement = document.getElementById('counter');
+
+        function incrementCounter() {
+            count++;
+            counterElement.textContent = count;
+        }
+    </script>
+</body>
+</html>
